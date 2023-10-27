@@ -1,11 +1,7 @@
 # Import library
 import pandas as pd
-import matplotlib.pyplot as plt
-import seaborn as sns
 import streamlit as st
 import plotly.express as px
-from babel.numbers import format_currency
-sns.set(style='dark')
 
 # Make title
 st.set_page_config(
@@ -44,6 +40,7 @@ with middle_column:
 st.markdown("---")
 
 #  Most highest categorical product
+st.subheader("Most highest categorical product sold")
 categorical_count = df_selection.groupby(by='product_category_name_english').order_id.count().sort_values(ascending=False).reset_index().head(5)
 fig_categorical_count = px.bar(
     categorical_count,
@@ -53,6 +50,7 @@ fig_categorical_count = px.bar(
 st.plotly_chart(fig_categorical_count)
 
 # Number of sold in each city
+st.subheader("Number of sold in each city")
 city_sold = df_selection.groupby(by='customer_city').order_id.count().sort_values(ascending=False).reset_index().head(5)
 fig_city_sold = px.bar(
     city_sold,
@@ -62,6 +60,7 @@ fig_city_sold = px.bar(
 st.plotly_chart(fig_city_sold)
 
 # Number of average score rating in each product
+st.subheader("Number of average score rating in each product")
 average_score = df_selection.groupby(by='product_category_name_english').review_score.mean().sort_values(ascending=False).round(1).reset_index().head(5)
 fig_average_score = px.bar(
     average_score,
