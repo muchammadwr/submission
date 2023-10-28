@@ -1,5 +1,7 @@
+scipy
+matplotlib
 numpy
 pandas
-streamlit
-plotly.express
+seaborn
+plotly
 pip
