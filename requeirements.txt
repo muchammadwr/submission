@@ -1,5 +1,5 @@
 numpy
 pandas
 streamlit
-plotly
+plotly.express
 pip
